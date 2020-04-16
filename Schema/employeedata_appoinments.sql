@@ -29,6 +29,7 @@ CREATE TABLE `appoinments` (
   `idPatients` varchar(45) NOT NULL,
   `GP name` varchar(45) DEFAULT NULL,
   `patients name` varchar(45) DEFAULT NULL,
+  `patients Insurrance Number` varchar (45) DEFAULT NULL,
   PRIMARY KEY (`idappoinments`,`idEmployees`,`idPatients`),
   UNIQUE KEY `idappoinments_UNIQUE` (`idappoinments`),
   UNIQUE KEY `idEmployees_UNIQUE` (`idEmployees`),
@@ -42,7 +43,7 @@ CREATE TABLE `appoinments` (
 
 LOCK TABLES `appoinments` WRITE;
 /*!40000 ALTER TABLE `appoinments` DISABLE KEYS */;
-INSERT INTO `appoinments` VALUES (100,'2020-04-16 03:00:00','1005','2','Diane Nguyen','Sage Elsesser'),(200,'2020-04-23 02:15:00','1011','4','Michael Dumile','Similola Adepoju');
+INSERT INTO `appoinments` VALUES (100,'2020-04-16 03:00:00','1005','2','Diane Nguyen','Sage Elsesser',null),(200,'2020-04-23 02:15:00','1011','4','Michael Dumile','Similola Adepoju',null);
 /*!40000 ALTER TABLE `appoinments` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
