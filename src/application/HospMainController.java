@@ -42,38 +42,40 @@ import javafx.stage.Stage;
 
 
 public class HospMainController {
+	public int Test;
 	static boolean isEmployee = false;
 	static boolean isPatient = false;
 	
-	@FXML
-	private TextField User;
-
-	@FXML
-	private TextField UserPassword;
 	
 	@FXML
-	private Label Status;
+	private TextField Username;
+
+	@FXML
+	private TextField Password;
+	
+	@FXML
+	private Label Statuslbl;
 	
 	public void Logins(ActionEvent event) throws Exception {
-
-		if (User.getText().equals("employee") && UserPassword.getText().equals("pass")) {
-			Status.setText("Login Succesful");
+		DataProcess data = new DataProcess();
+		if (Username.getText().equals("employee") && Password.getText().equals("pass")) {
+			Statuslbl.setText("Login Succesful");
 		    isEmployee = true;
-		} else if (User.getText().equals("patient") && UserPassword.getText().equals("pass")) {
-			Status.setText("Login Successful");
+		} else if (Username.getText().equals("patient") && Password.getText().equals("pass")) {
+			Statuslbl.setText("Login Successful");
 			isPatient = true;
 		}
 
 		else {
-			Status.setText("Wrong Username or Password");
+			Statuslbl.setText("Wrong Username or Password");
 		}
 		if (isEmployee || isPatient) {
 			try {
 			
 				Stage primaryStage = new Stage();
 
-				Parent root = FXMLLoader.load(getClass().getResource("/application/HospmanSys.fxml"));
-				Scene scene = new Scene(root, 500, 300);
+				Parent root = FXMLLoader.load(getClass().getResource("HospmanSys.fxml"));
+				Scene scene = new Scene(root);
 				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				primaryStage.setScene(scene);
 				primaryStage.setTitle("HOSPMANSYS DATABASE");
