@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MakeAppointmentController">
+   <children>
+      <Pane prefHeight="327.0" prefWidth="446.0">
+         <children>
+            <Label layoutX="77.0" layoutY="207.0" prefHeight="32.0" prefWidth="219.0" text="If you are a new patient, click here" />
+            <Button fx:id="RegInfo" layoutX="124.0" layoutY="258.0" mnemonicParsing="false" text="Register information" />
+            <TextField fx:id="IN" layoutX="112.0" layoutY="107.0" promptText="Type in your IN" />
+            <Label fx:id="TypeINlbl" layoutX="77.0" layoutY="75.0" text="If you're already a patient, type in your IN" />
+            <Button fx:id="ConfirmIN" layoutX="157.0" layoutY="145.0" mnemonicParsing="false" onAction="#ConfirmINAction" text="Confirm" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

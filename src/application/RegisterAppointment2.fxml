@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MakeAppointmentController">
+   <children>
+      <Pane prefHeight="430.0" prefWidth="432.0">
+         <children>
+            <Label layoutX="35.0" layoutY="40.0" text="Name:" />
+            <Label layoutX="35.0" layoutY="78.0" text="Address:" />
+            <Label layoutX="35.0" layoutY="112.0" text="Insurance Number:" />
+            <Label layoutX="35.0" layoutY="141.0" text="Age" />
+            <Label layoutX="35.0" layoutY="174.0" text="Mobilephone Number:" />
+            <TextField fx:id="Name" layoutX="184.0" layoutY="36.0" />
+            <TextField fx:id="Add" layoutX="184.0" layoutY="74.0" />
+            <TextField fx:id="INNo" layoutX="184.0" layoutY="108.0" />
+            <TextField fx:id="Age" layoutX="184.0" layoutY="137.0" />
+            <TextField fx:id="MoNum" layoutX="184.0" layoutY="170.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

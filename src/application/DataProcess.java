@@ -129,7 +129,17 @@ public class DataProcess {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public int checkPatient(String IN) {
+		for(int i =0; i < PatientList.size();i++) {
+		//	System.out.println(PatientList.get(i).getPatientInsuranceNo());
+			if(IN.equals(PatientList.get(i).getPatientInsuranceNo())) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
 	public ArrayList<Patient> getPatientList() {
 		return PatientList;
 	}
