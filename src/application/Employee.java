@@ -3,17 +3,42 @@ package application;
 public abstract class Employee  {
 String username;
 String password;
+String Name;
+String Address;
+String MobileNumber;
+String Role;
+
+
+public String getRole() {
+	return Role;
+}
+public void setRole(String role) {
+	Role = role;
+}
+public String getName() {
+	return Name;
+}
+public void setName(String name) {
+	Name = name;
+}
+public String getAddress() {
+	return Address;
+}
+public void setAddress(String address) {
+	Address = address;
+}
+public String getMobileNumber() {
+	return MobileNumber;
+}
+public void setMobileNumber(String mobileNumber) {
+	MobileNumber = mobileNumber;
+}
 /**
  * @return the username
  */
 
 public String getUsername() {
 	return username;
-}
-public Employee(String username, String password) {
-	super();
-	this.username = username;
-	this.password = password;
 }
 /**
  * @param username the username to set

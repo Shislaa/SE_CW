@@ -3,8 +3,9 @@ package application;
 public class Patient {
 String patientName;
 String patientAddress;
-int patientInsuranceNo;
+String patientInsuranceNo;
 int patientAge;
+String mobileNumber;
 /**
  * @return the patientName
  */
@@ -12,12 +13,17 @@ int patientAge;
 public String getPatientName() {
 	return patientName;
 }
-public Patient(String patientName, String patientAddress, int patientInsuranceNo, int patientAge) {
-	super();
-	this.patientName = patientName;
-	this.patientAddress = patientAddress;
+public String getPatientInsuranceNo() {
+	return patientInsuranceNo;
+}
+public void setPatientInsuranceNo(String patientInsuranceNo) {
 	this.patientInsuranceNo = patientInsuranceNo;
-	this.patientAge = patientAge;
+}
+public String getMobileNumber() {
+	return mobileNumber;
+}
+public void setMobileNumber(String mobileNumber) {
+	this.mobileNumber = mobileNumber;
 }
 /**
  * @param patientName the patientName to set
@@ -36,18 +42,6 @@ public String getPatientAddress() {
  */
 public void setPatientAddress(String patientAddress) {
 	this.patientAddress = patientAddress;
-}
-/**
- * @return the patientInsuranceNo
- */
-public int getPatientInsuranceNo() {
-	return patientInsuranceNo;
-}
-/**
- * @param patientInsuranceNo the patientInsuranceNo to set
- */
-public void setPatientInsuranceNo(int patientInsuranceNo) {
-	this.patientInsuranceNo = patientInsuranceNo;
 }
 /**
  * @return the patientAge
