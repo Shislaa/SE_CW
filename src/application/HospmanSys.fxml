@@ -1,6 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<<<<<<< HEAD
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="784.0" prefWidth="1215.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="604.0" layoutY="109.0" prefHeight="622.0" prefWidth="578.0">
+        <columns>
+          <TableColumn prefWidth="49.0" />
+          <TableColumn prefWidth="101.0" text="Patient ID" />
+            <TableColumn prefWidth="75.0" text="Column X" />
+            <TableColumn prefWidth="75.0" text="Column X" />
+            <TableColumn prefWidth="75.0" text="Column X" />
+        </columns>
+      </TableView>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1215.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Logout" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Unspecified Menu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <TextField layoutX="972.0" layoutY="73.0" promptText="Search Patient" />
+      <Button layoutX="1130.0" layoutY="73.0" mnemonicParsing="false" text="Search" />
+      <Button layoutX="68.0" layoutY="109.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="408.0" text="Enrol Patient">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="68.0" layoutY="219.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="408.0" text="Update Patient Information">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="68.0" layoutY="325.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="408.0" text="View Patient Report">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="68.0" layoutY="430.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="408.0" text="Create/Edit Patient Report">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="68.0" layoutY="534.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="408.0" text="Add Appointment">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="68.0" layoutY="644.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="408.0" text="Edit Appointment">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+=======
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
@@ -18,5 +96,6 @@
             <Button fx:id="AccPaRP" layoutX="224.0" layoutY="402.0" mnemonicParsing="false" text="access patient reports" />
          </children>
       </Pane>
+>>>>>>> bbc609a3087f4ffaf1409303fc5d85747d483e23
    </children>
 </AnchorPane>
