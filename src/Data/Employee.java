@@ -1,4 +1,4 @@
-package application;
+package Data;
 
 public abstract class Employee  {
 String username;

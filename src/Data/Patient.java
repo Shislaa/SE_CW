@@ -1,4 +1,4 @@
-package application;
+package Data;
 
 public class Patient {
 String patientName;

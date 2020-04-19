@@ -1,18 +1,24 @@
-package application;
+package Data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DataProcess {
 	ArrayList<Employee> EmployeeList = new ArrayList<>();
 	ArrayList<Patient> PatientList = new ArrayList<>();
+	ArrayList<Appointment> AppointmentList = new ArrayList<>();
 	
-	public DataProcess() {
+	public DataProcess(){
 		EmployeeData();
 		PatientData();
+		AppointmentData();
 	}
 	
 	public void EmployeeData() {
@@ -132,7 +138,7 @@ public class DataProcess {
 	
 	public int checkPatient(String IN) {
 		for(int i =0; i < PatientList.size();i++) {
-		//	System.out.println(PatientList.get(i).getPatientInsuranceNo());
+			System.out.println(PatientList.get(i).getPatientInsuranceNo());
 			if(IN.equals(PatientList.get(i).getPatientInsuranceNo())) {
 				return i;
 			}
@@ -140,6 +146,36 @@ public class DataProcess {
 		return -1;
 	}
 	
+	public void AppointmentData(){
+		try {
+			// Get connection
+			Connection mycon = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila","admin","admin");
+			// create a Statement
+			Statement myStat = mycon.createStatement();
+			// Execute query
+			ResultSet myRs = myStat.executeQuery("select * from sakila.appoinments");
+			// print out
+			while(myRs.next()) {
+				int idapp = myRs.getInt("idappoinments");
+				Date time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(myRs.getString("Time"));
+				String idEm = myRs.getString("idEmployees");
+				String GP = myRs.getString("GP name");
+				String PAName = myRs.getString("patients name");
+				String PAIN = myRs.getString("patients Insurrance Number");
+				Appointment app = new Appointment();
+				app.setIdapp(idapp);
+				app.setDate(time);
+				app.setIdEm(idEm);
+				app.setGP(GP);
+				app.setPAname(PAName);
+				app.setPAIN(PAIN);
+				AppointmentList.add(app);
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public ArrayList<Patient> getPatientList() {
 		return PatientList;
 	}
