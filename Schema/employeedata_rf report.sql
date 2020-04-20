@@ -16,34 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `patients`
+-- Table structure for table `rf report`
 --
 
-DROP TABLE IF EXISTS `patients`;
+DROP TABLE IF EXISTS `rf report`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `patients` (
-  `idPatients` int NOT NULL,
-  `Name` varchar(45) DEFAULT NULL,
-  `Address` varchar(45) DEFAULT NULL,
-  `Insurance Number` varchar(45) DEFAULT NULL,
-  `Age(Yrs)` int DEFAULT NULL,
-  `Mobile Number` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idPatients`),
-  UNIQUE KEY `idPatients_UNIQUE` (`idPatients`),
-  UNIQUE KEY `Insurance Number_UNIQUE` (`Insurance Number`),
-  UNIQUE KEY `Mobile Number_UNIQUE` (`Mobile Number`)
+CREATE TABLE `rf report` (
+  `idEmployees` int NOT NULL,
+  `Rf report Text` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idEmployees`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `patients`
+-- Dumping data for table `rf report`
 --
 
-LOCK TABLES `patients` WRITE;
-/*!40000 ALTER TABLE `patients` DISABLE KEYS */;
-INSERT INTO `patients` VALUES (1,'Thebe Kgostile','15 Victoria Street','80384958373',25,'07369835556 '),(2,'Sage Elsesser','52 PearTree Street','97097898938',23,'08002823782'),(3,'Fatima Mustapha','44 Bevenden Street','23655483528',21,'09001929829'),(4,'Similola Adepoju','13 Earls Court Lane','52673853826',19,'08123928382');
-/*!40000 ALTER TABLE `patients` ENABLE KEYS */;
+LOCK TABLES `rf report` WRITE;
+/*!40000 ALTER TABLE `rf report` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rf report` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

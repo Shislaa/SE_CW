@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `employees`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `employees` (
-  `idEmployees` varchar(45) NOT NULL,
+  `idEmployees` int NOT NULL,
   `password` varchar(45) NOT NULL,
   `Name` varchar(45) DEFAULT NULL,
   `Address` varchar(45) DEFAULT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1001,'pass','Edwin Shattock','10 Marstons road','07498661115',null),(1002,'pass','Jason Statham','19 Whiteladies Road','09081174123',null),(1003,'pass','Lisa Kudrick','23 Clifton Village','08023116456',null),(1004,'pass','Margot Robbie','13 Cousins way','07923434235',null),(1005,'pass','Diane Nguyen','32 Dibden Close','08030060079',null),(1006,'pass','Zachary Willis','419 Ikorodou-Crescent Street','09058042037',null),(1007,'pass','Jesus Navas','135 College Road','07432163634',null),(1008,'pass','Cheryl Cole','13 Coulston Road','07137857642',null),(1009,'pass','Chloe Moretz','22b Stokes Lane','08520034561',null),(1010,'pass','Viktor Vayghn','34 Westerleigh Road','09378234538',null),(1011,'pass','Michael Dumile','9 Robertson Road','07023111465',null),(1012,'pass','Natalie Klepacova','15 Dowend Road','09060360426',null);
+INSERT INTO `employees` VALUES (1001,'pass','Edwin Shattock','10 Marstons road','07498661115','Appointments Manager'),(1002,'pass','Jason Statham','19 Whiteladies Road','09081174123','Consultant Clerk'),(1003,'pass','Lisa Kudrick','23 Clifton Village','08023116456',''),(1004,'pass','Margot Robbie','13 Cousins way','07923434235','Consultant'),(1005,'pass','Diane Nguyen','32 Dibden Close','08030060079',''),(1006,'pass','Zachary Willis','419 Ikorodou-Crescent Street','09058042037','Consultant'),(1007,'pass','Jesus Navas','135 College Road','07432163634','Consultant Clerk'),(1008,'pass','Cheryl Cole','13 Coulston Road','07137857642','Senior Manager'),(1009,'pass','Chloe Moretz','22b Stokes Lane','08520034561','Financial Clerk'),(1010,'pass','Viktor Vayghn','34 Westerleigh Road','09378234538',NULL),(1011,'pass','Michael Dumile','9 Robertson Road','07023111465',NULL),(1012,'pass','Natalie Klepacova','15 Dowend Road','09060360426','Financial Clerk');
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-15 12:25:41
+-- Dump completed on 2020-04-20 13:41:50
