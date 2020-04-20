@@ -29,10 +29,9 @@ CREATE TABLE `appoinments` (
   `idPatients` varchar(45) NOT NULL,
   `GP name` varchar(45) DEFAULT NULL,
   `patients name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idappoinments`,`idEmployees`,`idPatients`),
-  UNIQUE KEY `idappoinments_UNIQUE` (`idappoinments`),
-  UNIQUE KEY `idEmployees_UNIQUE` (`idEmployees`),
-  UNIQUE KEY `idPatient_UNIQUE` (`idPatients`)
+  `patients Insurrance Number` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idappoinments`),
+  UNIQUE KEY `idappoinments_UNIQUE` (`idappoinments`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -42,7 +41,7 @@ CREATE TABLE `appoinments` (
 
 LOCK TABLES `appoinments` WRITE;
 /*!40000 ALTER TABLE `appoinments` DISABLE KEYS */;
-INSERT INTO `appoinments` VALUES (100,'2020-04-16 03:00:00','1005','2','Diane Nguyen','Sage Elsesser'),(200,'2020-04-23 02:15:00','1011','4','Michael Dumile','Similola Adepoju');
+INSERT INTO `appoinments` VALUES (100,'2020-04-16 03:00:00','1005','2','Diane Nguyen','Sage Elsesser','97097898938'),(200,'2020-04-23 02:15:00','1011','4','Michael Dumile','Similola Adepoju','52673853826');
 /*!40000 ALTER TABLE `appoinments` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

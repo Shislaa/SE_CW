@@ -11,7 +11,7 @@
       <Pane prefHeight="327.0" prefWidth="446.0">
          <children>
             <Label layoutX="77.0" layoutY="207.0" prefHeight="32.0" prefWidth="219.0" text="If you are a new patient, click here" />
-            <Button fx:id="RegInfo" layoutX="124.0" layoutY="258.0" mnemonicParsing="false" text="Register information" />
+            <Button fx:id="RegInfo" layoutX="124.0" layoutY="258.0" mnemonicParsing="false" onAction="#RegInfoAction" text="Register information" />
             <TextField fx:id="IN" layoutX="112.0" layoutY="107.0" promptText="Type in your IN" />
             <Label fx:id="TypeINlbl" layoutX="77.0" layoutY="75.0" text="If you're already a patient, type in your IN" />
             <Button fx:id="ConfirmIN" layoutX="157.0" layoutY="145.0" mnemonicParsing="false" onAction="#ConfirmINAction" text="Confirm" />

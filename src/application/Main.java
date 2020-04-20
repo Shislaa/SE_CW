@@ -18,9 +18,10 @@ public static int Test = 10;
     public void start(Stage primaryStage) throws Exception {
         try {
 
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../application/Login.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+            primaryStage.setTitle("Login");
             primaryStage.setScene(scene);
             primaryStage.show();
 

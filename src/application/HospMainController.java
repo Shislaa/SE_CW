@@ -76,7 +76,6 @@ public class HospMainController {
 			try {
 			
 				Stage primaryStage = new Stage();
-
 				Parent root = FXMLLoader.load(getClass().getResource("HospmanSys.fxml"));
 				Scene scene = new Scene(root);
 				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

@@ -1,11 +1,20 @@
 package RegisterAppoitment;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
+import Data.Appointment;
 import Data.DataProcess;
+import Data.Patient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,7 +56,7 @@ public class MakeAppointmentController {
 	@FXML MenuItem GP3;
 	@FXML MenuItem GP4;
 	LocalDate date = LocalDate.now();
-	
+	boolean newpatient = false;
 	DataProcess data = new DataProcess();
 	public void ConfirmINAction(ActionEvent event) throws IOException {
 		String INnumber = IN.getText();
@@ -85,17 +94,18 @@ public class MakeAppointmentController {
 		MoNum.setDisable(true);
 	}
 	
-	public void CalendarAction(ActionEvent event) {
-		date = Calendar.getValue();
-		LocalDateTime datetest = LocalDateTime.now();
-		System.out.println(date);
-	}
-	
+//	public void CalendarAction(ActionEvent event) {
+//		date = Calendar.getValue();
+//		LocalDateTime datetest = LocalDateTime.now();
+////		System.out.println(date);
+//	}
+//	
 	public void TimeSliderAction(MouseEvent event) {
 		TimeSlider.setValue(Math.round(TimeSlider.getValue()));
-		System.out.println(TimeSlider.getValue());
+//		System.out.println(TimeSlider.getValue());
 	}
 	
+// Choosing GP controller
 	public void GP1Action(ActionEvent event) {
 		ChooseGP.setText(GP1.getText());
 	}
@@ -108,8 +118,80 @@ public class MakeAppointmentController {
 	public void GP4Action(ActionEvent event) {
 		ChooseGP.setText(GP4.getText());
 	}
+////////////
 	
-	public void RegInfoAction(ActionEvent event) {
+	public void ConfirmAppAction(ActionEvent event) throws ParseException, IOException, SQLException {
 		
+		int IDApp = data.getAppointmentList().get(data.getAppointmentList().size() - 1).getIdapp() + 1;
+		LocalDate datetemp = Calendar.getValue();
+		int timetemp = (int) Math.round(TimeSlider.getValue());
+		String timetemp2 = new String(Integer.toString(timetemp) + ":00:00");
+		Date timeApp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(date +" "+timetemp2);
+		String GPName = ChooseGP.getText();
+		String PAName = Name.getText();
+		String PAIN = INNo.getText();
+		String idEm = data.getEmployeeList().get(data.checkIDEm(GPName)).getUsername();
+		Appointment newApp = new Appointment();
+		newApp.setIdapp(IDApp);
+		newApp.setDate(timeApp);
+		newApp.setGP(GPName);
+		newApp.setPAname(PAName);
+		newApp.setPAIN(PAIN);
+		newApp.setIdEm(idEm);
+		if(newpatient) {
+			Patient newpa = new Patient();
+			newpa.setPatientName(Name.getText());
+			newpa.setPatientAddress(Add.getText());
+			newpa.setPatientInsuranceNo(INNo.getText());
+			newpa.setPatientAge(Integer.parseInt(Age.getText()));
+			newpa.setMobileNumber(MoNum.getText());
+			data.getPatientList().add(newpa);
+			newpatient = false;
+		}
+		if(data.getEmployeeList().get(data.checkIDEm(GPName)).checkGPVacancy(timeApp)) {
+			System.out.println("Your appointment has been made successfully!");
+			data.getAppointmentList().add(newApp);
+			data.getEmployeeList().get(data.checkIDEm(GPName)).getGPAppoint().add(timeApp);
+			System.out.println("IDAPP: " + IDApp +" IDEm:" +idEm+ " Date: " + timeApp + " GPName: " + GPName + " PAName: "+ PAName + " PAIN: " + PAIN);
+			
+			// Get connection
+			Connection mycon = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila","admin","admin");
+			// create a Statement
+			Statement myStat = mycon.createStatement();
+			// Execute query
+			String sql = "insert into `appoinments` " 
+						+" values (" +IDApp+", '"+(date +" "+timetemp2)+"', '"+idEm+"', '"+(data.checkPatient(INNo.getText()) +1 )+"', '"+GPName+"', '"+PAName+"', '"+PAIN+"')";
+			System.out.println(sql);
+			myStat.executeUpdate(sql);
+			((Node)event.getSource()).getScene().getWindow().hide();
+			
+			Stage primaryStage = new Stage();
+			Parent root = FXMLLoader.load(getClass().getResource("../application/Login.fxml"));
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("Login");
+			primaryStage.show();
+		}
+		else {
+			System.out.println("This GP has already have an appointment at this time.");
+		}
+		
+		
+		
+	}
+	public void RegInfoAction(ActionEvent event) throws IOException {
+		newpatient = true;
+		System.out.println("RegInfoAction worked");
+		((Node)event.getSource()).getScene().getWindow().hide();
+		Stage primaryStage2 = new Stage();
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("RegisterAppointment2.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage2.setScene(scene);
+		primaryStage2.setTitle("Make Appointment");
+		primaryStage2.show();
 	}
 }

@@ -25,8 +25,8 @@
             <TextField fx:id="INNo" layoutX="184.0" layoutY="108.0" />
             <TextField fx:id="Age" layoutX="184.0" layoutY="137.0" />
             <TextField fx:id="MoNum" layoutX="184.0" layoutY="170.0" />
-            <Button fx:id="ConfirmApp" layoutX="190.0" layoutY="349.0" mnemonicParsing="false" text="Confirm" />
-            <DatePicker fx:id="Calendar" layoutX="183.0" layoutY="211.0" onAction="#CalendarAction" />
+            <Button fx:id="ConfirmApp" layoutX="190.0" layoutY="349.0" mnemonicParsing="false" onAction="#ConfirmAppAction" text="Confirm" />
+            <DatePicker fx:id="Calendar" layoutX="183.0" layoutY="211.0" />
             <Label layoutX="35.0" layoutY="215.0" text="Date:" />
             <Label layoutX="35.0" layoutY="244.0" text="GP:" />
             <MenuButton fx:id="ChooseGP" layoutX="183.0" layoutY="240.0" mnemonicParsing="false" text="Choose GP">
@@ -36,7 +36,7 @@
                       <MenuItem fx:id="GP1" mnemonicParsing="false" onAction="#GP1Action" text="Lisa Kudrick" />
                       <MenuItem fx:id="GP2" mnemonicParsing="false" onAction="#GP2Action" text="Diane Nguyen" />
                         <MenuItem fx:id="GP3" mnemonicParsing="false" onAction="#GP3Action" text="Chloe Moretz" />
-                        <MenuItem fx:id="GP4" mnemonicParsing="false" onAction="#GP4Action" text="Maichael Dumile" />
+                        <MenuItem fx:id="GP4" mnemonicParsing="false" onAction="#GP4Action" text="Michael Dumile" />
                     </items>
                   </Menu>
               </items>

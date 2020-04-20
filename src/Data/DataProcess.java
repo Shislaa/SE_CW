@@ -38,66 +38,14 @@ public class DataProcess {
 				String address = myRs.getString("Address");
 				String phone = myRs.getString("Mobile Number");
 				String role = myRs.getString("Role");
-				if(role == "AP") {
-					AP newemployee = new AP();
-					newemployee.setUsername(id);
-					newemployee.setPassword(pass);
-					newemployee.setName(name);
-					newemployee.setAddress(address);
-					newemployee.setMobileNumber(phone);
-					newemployee.setRole(role);
-					EmployeeList.add(newemployee);
-				}
-				if (role == "CS") {
-					CS newemployee = new CS();
-					newemployee.setUsername(id);
-					newemployee.setPassword(pass);
-					newemployee.setName(name);
-					newemployee.setAddress(address);
-					newemployee.setMobileNumber(phone);
-					newemployee.setRole(role);
-					EmployeeList.add(newemployee);
-				}
-				if (role == "FC") {
-					FC newemployee = new FC();
-					newemployee.setUsername(id);
-					newemployee.setPassword(pass);
-					newemployee.setName(name);
-					newemployee.setAddress(address);
-					newemployee.setMobileNumber(phone);
-					newemployee.setRole(role);
-					EmployeeList.add(newemployee);
-				}
-				if (role == "CSC") {
-					CSC newemployee = new CSC();
-					newemployee.setUsername(id);
-					newemployee.setPassword(pass);
-					newemployee.setName(name);
-					newemployee.setAddress(address);
-					newemployee.setMobileNumber(phone);
-					newemployee.setRole(role);
-					EmployeeList.add(newemployee);
-				}
-				if (role == "SM") {
-					SM newemployee = new SM();
-					newemployee.setUsername(id);
-					newemployee.setPassword(pass);
-					newemployee.setName(name);
-					newemployee.setAddress(address);
-					newemployee.setMobileNumber(phone);
-					newemployee.setRole(role);
-					EmployeeList.add(newemployee);
-				}
-				if (role == "GP") {
-					GP newemployee = new GP();
-					newemployee.setUsername(id);
-					newemployee.setPassword(pass);
-					newemployee.setName(name);
-					newemployee.setAddress(address);
-					newemployee.setMobileNumber(phone);
-					newemployee.setRole(role);
-					EmployeeList.add(newemployee);
-				}
+				Employee newemployee = new Employee();
+				newemployee.setUsername(id);
+				newemployee.setPassword(pass);
+				newemployee.setName(name);
+				newemployee.setAddress(address);
+				newemployee.setMobileNumber(phone);
+				newemployee.setRole(role);
+				EmployeeList.add(newemployee);
 			}
 		}
 		catch (Exception e) {
@@ -146,6 +94,15 @@ public class DataProcess {
 		return -1;
 	}
 	
+	public int checkIDEm(String GP) {
+		for(int i = 0; i < EmployeeList.size();i++) {
+			if(GP.equals(EmployeeList.get(i).getName())) {
+			//	System.out.println("CheckIDworked");
+				return i;
+			}
+		}
+		return -1;
+	}
 	public void AppointmentData(){
 		try {
 			// Get connection
@@ -169,6 +126,8 @@ public class DataProcess {
 				app.setGP(GP);
 				app.setPAname(PAName);
 				app.setPAIN(PAIN);
+				int index = checkIDEm(GP);
+				EmployeeList.get(index).getGPAppoint().add(time);
 				AppointmentList.add(app);
 			}
 		}
@@ -176,10 +135,17 @@ public class DataProcess {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	public ArrayList<Appointment> getAppointmentList() {
+		return AppointmentList;
+	}
+
 	public ArrayList<Patient> getPatientList() {
 		return PatientList;
 	}
-
+	
 	public ArrayList<Employee> getEmployeeList() {
 		return EmployeeList;
 	}

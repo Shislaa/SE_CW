@@ -1,13 +1,22 @@
 package Data;
 
-public abstract class Employee  {
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Employee  {
 String username;
 String password;
 String Name;
 String Address;
 String MobileNumber;
 String Role;
+ArrayList<Date> GPAppoint = new ArrayList<>();
 
+
+
+public ArrayList<Date> getGPAppoint() {
+	return GPAppoint;
+}
 
 public String getRole() {
 	return Role;
@@ -57,6 +66,15 @@ public String getPassword() {
  */
 public void setPassword(String password) {
 	this.password = password;
+}
+
+public boolean checkGPVacancy(Date date) {
+	for(int i =0; i < GPAppoint.size();i++) {
+		if(date.equals(GPAppoint.get(i))) {
+			return false;
+		}
+	}
+	return true;
 }
 
 public int processReceipt() {
