@@ -7,6 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 
 public class Main extends Application {
@@ -36,7 +39,8 @@ public static int Test = 10;
 			ResultSet myRs = myStat.executeQuery("select * from sakila.appoinments");
 			// print out
 			while(myRs.next()) {
-				System.out.println(myRs.getString("GP name"));
+				Date time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(myRs.getString("Time"));
+				System.out.println(time);
 			}
 		}
 		catch (Exception e) {

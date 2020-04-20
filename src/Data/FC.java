@@ -1,4 +1,4 @@
-package application;
+package Data;
 
 public class FC extends Employee {
 

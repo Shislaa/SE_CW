@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterAppoitment.MakeAppointmentController">
+   <children>
+      <Pane prefHeight="430.0" prefWidth="463.0">
+         <children>
+            <Label layoutX="35.0" layoutY="40.0" text="Name:" />
+            <Label layoutX="35.0" layoutY="78.0" text="Address:" />
+            <Label layoutX="35.0" layoutY="112.0" text="Insurance Number:" />
+            <Label layoutX="35.0" layoutY="141.0" text="Age" />
+            <Label layoutX="35.0" layoutY="174.0" text="Mobilephone Number:" />
+            <TextField fx:id="Name" layoutX="184.0" layoutY="36.0" />
+            <TextField fx:id="Add" layoutX="184.0" layoutY="74.0" />
+            <TextField fx:id="INNo" layoutX="184.0" layoutY="108.0" />
+            <TextField fx:id="Age" layoutX="184.0" layoutY="137.0" />
+            <TextField fx:id="MoNum" layoutX="184.0" layoutY="170.0" />
+            <Button fx:id="ConfirmApp" layoutX="190.0" layoutY="349.0" mnemonicParsing="false" text="Confirm" />
+            <DatePicker fx:id="Calendar" layoutX="183.0" layoutY="211.0" onAction="#CalendarAction" />
+            <Label layoutX="35.0" layoutY="215.0" text="Date:" />
+            <Label layoutX="35.0" layoutY="244.0" text="GP:" />
+            <MenuButton fx:id="ChooseGP" layoutX="183.0" layoutY="240.0" mnemonicParsing="false" text="Choose GP">
+              <items>
+                  <Menu fx:id="GPs" mnemonicParsing="false" text="GP List">
+                    <items>
+                      <MenuItem fx:id="GP1" mnemonicParsing="false" onAction="#GP1Action" text="Lisa Kudrick" />
+                      <MenuItem fx:id="GP2" mnemonicParsing="false" onAction="#GP2Action" text="Diane Nguyen" />
+                        <MenuItem fx:id="GP3" mnemonicParsing="false" onAction="#GP3Action" text="Chloe Moretz" />
+                        <MenuItem fx:id="GP4" mnemonicParsing="false" onAction="#GP4Action" text="Maichael Dumile" />
+                    </items>
+                  </Menu>
+              </items>
+            </MenuButton>
+            <Label layoutX="34.0" layoutY="278.0" text="Time:" />
+            <Slider fx:id="TimeSlider" blockIncrement="1.0" layoutX="183.0" layoutY="276.0" majorTickUnit="1.0" max="17.0" min="8.0" minorTickCount="0" onMouseClicked="#TimeSliderAction" onMouseDragged="#TimeSliderAction" prefHeight="14.0" prefWidth="242.0" showTickLabels="true" showTickMarks="true" value="8.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

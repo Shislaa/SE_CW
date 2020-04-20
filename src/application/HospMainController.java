@@ -16,6 +16,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import Data.DataProcess;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -56,6 +57,8 @@ public class HospMainController {
 	@FXML
 	private Label Statuslbl;
 	
+	
+	
 	public void Logins(ActionEvent event) throws Exception {
 		DataProcess data = new DataProcess();
 		if (Username.getText().equals("employee") && Password.getText().equals("pass")) {
@@ -87,5 +90,17 @@ public class HospMainController {
 			}
 		}
 	}
-
+	
+	public void RegAppointment(ActionEvent event) throws Exception {
+		
+		((Node)event.getSource()).getScene().getWindow().hide();
+		Stage primaryStage2 = new Stage();
+		
+		Parent root = FXMLLoader.load(getClass().getResource("RegisterAppointment1.fxml"));
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage2.setScene(scene);
+		primaryStage2.setTitle("Make Appointment");
+		primaryStage2.show();
+	}
 }

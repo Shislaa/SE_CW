@@ -41,7 +41,11 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+<<<<<<< HEAD
 INSERT INTO `employees` VALUES (1001,'pass','Edwin Shattock','10 Marstons road','07498661115','Appointments Manager'),(1002,'pass','Jason Statham','19 Whiteladies Road','09081174123','Consultant Clerk'),(1003,'pass','Lisa Kudrick','23 Clifton Village','08023116456',''),(1004,'pass','Margot Robbie','13 Cousins way','07923434235','Consultant'),(1005,'pass','Diane Nguyen','32 Dibden Close','08030060079',''),(1006,'pass','Zachary Willis','419 Ikorodou-Crescent Street','09058042037','Consultant'),(1007,'pass','Jesus Navas','135 College Road','07432163634','Consultant Clerk'),(1008,'pass','Cheryl Cole','13 Coulston Road','07137857642','Senior Manager'),(1009,'pass','Chloe Moretz','22b Stokes Lane','08520034561','Financial Clerk'),(1010,'pass','Viktor Vayghn','34 Westerleigh Road','09378234538',NULL),(1011,'pass','Michael Dumile','9 Robertson Road','07023111465',NULL),(1012,'pass','Natalie Klepacova','15 Dowend Road','09060360426','Financial Clerk');
+=======
+INSERT INTO `employees` VALUES (1001,'pass','Edwin Shattock','10 Marstons road','07498661115','AP'),(1002,'pass','Jason Statham','19 Whiteladies Road','09081174123','FC'),(1003,'pass','Lisa Kudrick','23 Clifton Village','08023116456','GP'),(1004,'pass','Margot Robbie','13 Cousins way','07923434235','CS'),(1005,'pass','Diane Nguyen','32 Dibden Close','08030060079','GP'),(1006,'pass','Zachary Willis','419 Ikorodou-Crescent Street','09058042037','FC'),(1007,'pass','Jesus Navas','135 College Road','07432163634','CS'),(1008,'pass','Cheryl Cole','13 Coulston Road','07137857642','CSC'),(1009,'pass','Chloe Moretz','22b Stokes Lane','08520034561','GP'),(1010,'pass','Viktor Vayghn','34 Westerleigh Road','09378234538','CSC'),(1011,'pass','Michael Dumile','9 Robertson Road','07023111465','GP'),(1012,'pass','Natalie Klepacova','15 Dowend Road','09060360426','SM');
+>>>>>>> a78b64d9d9275c40f4c5644cd7c541253b0494df
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
