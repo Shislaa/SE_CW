@@ -10,6 +10,7 @@ String Name;
 String Address;
 String MobileNumber;
 String Role;
+//Each GP has an appointment List to check for vacancy
 ArrayList<Date> GPAppoint = new ArrayList<>();
 
 

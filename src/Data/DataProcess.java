@@ -10,15 +10,24 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class DataProcess {
-	ArrayList<Employee> EmployeeList = new ArrayList<>();
-	ArrayList<Patient> PatientList = new ArrayList<>();
-	ArrayList<Appointment> AppointmentList = new ArrayList<>();
-	
+	static ArrayList<Employee> EmployeeList = new ArrayList<>();
+	static ArrayList<Patient> PatientList = new ArrayList<>();
+	static ArrayList<Appointment> AppointmentList = new ArrayList<>();
+	static ObservableList<Patient> newPatientList = FXCollections.observableArrayList();
+
 	public DataProcess(){
+		if(EmployeeList.isEmpty())
 		EmployeeData();
+		if(PatientList.isEmpty())
 		PatientData();
+		if(AppointmentList.isEmpty())
 		AppointmentData();
+		if(newPatientList.isEmpty()) 
+		NewPatientData();
 	}
 	
 	public void EmployeeData() {
@@ -63,6 +72,7 @@ public class DataProcess {
 			ResultSet myRs = myStat.executeQuery("select * from sakila.patients");
 			// print out
 			while(myRs.next()) {
+				int id = myRs.getInt("idPatients");
 				String name = myRs.getString("Name");
 				String address = myRs.getString("Address");
 				String IN = myRs.getString("Insurance Number");
@@ -70,6 +80,7 @@ public class DataProcess {
 				String phone = myRs.getString("Mobile Number");
 				
 				Patient PA = new Patient();
+				PA.setId(id);
 				PA.setPatientName(name);
 				PA.setPatientAddress(address);
 				PA.setPatientInsuranceNo(IN);
@@ -77,6 +88,39 @@ public class DataProcess {
 				PA.setMobileNumber(phone);
 				
 				PatientList.add(PA);
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void NewPatientData() {
+		try {
+			// Get connection
+			Connection mycon = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila","admin","admin");
+			// create a Statement
+			Statement myStat = mycon.createStatement();
+			// Execute query
+			ResultSet myRs = myStat.executeQuery("select * from sakila.`new patients`");
+			// print out
+			while(myRs.next()) {
+				int id = myRs.getInt("idPatients");
+				String name = myRs.getString("Name");
+				String address = myRs.getString("Address");
+				String IN = myRs.getString("Insurance Number");
+				int age = myRs.getInt("Age(Yrs)");
+				String phone = myRs.getString("Mobile Number");
+				
+				Patient PA = new Patient();
+				PA.setId(id);
+				PA.setPatientName(name);
+				PA.setPatientAddress(address);
+				PA.setPatientInsuranceNo(IN);
+				PA.setPatientAge(age);
+				PA.setMobileNumber(phone);
+				
+				newPatientList.add(PA);
 			}
 		}
 		catch (Exception e) {
@@ -93,7 +137,8 @@ public class DataProcess {
 		}
 		return -1;
 	}
-	
+
+// Return the position of the GP in the list
 	public int checkIDEm(String GP) {
 		for(int i = 0; i < EmployeeList.size();i++) {
 			if(GP.equals(EmployeeList.get(i).getName())) {
@@ -102,6 +147,28 @@ public class DataProcess {
 			}
 		}
 		return -1;
+	}
+///////////	
+	
+	public boolean checkLogin(String username, String password) {
+		for(int i =0; i < EmployeeList.size();i++) {
+			if(EmployeeList.get(i).getUsername().equals(username)) {
+				if(EmployeeList.get(i).getPassword().equals(password)) {
+					return true;
+				}
+				return false;
+			}
+		}
+		return false;
+	}
+	
+	public String checkRole(String username) {
+		for(int i = 0; i < EmployeeList.size();i++) {
+			if(EmployeeList.get(i).getUsername().equals(username)) {
+				return EmployeeList.get(i).getRole();
+			}
+		}
+		return "-1";
 	}
 	public void AppointmentData(){
 		try {
@@ -138,6 +205,13 @@ public class DataProcess {
 	
 	
 	
+
+
+
+	public static ObservableList<Patient> getNewPatientList() {
+		return newPatientList;
+	}
+
 	public ArrayList<Appointment> getAppointmentList() {
 		return AppointmentList;
 	}

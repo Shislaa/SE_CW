@@ -23,9 +23,17 @@ DROP TABLE IF EXISTS `rf report`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `rf report` (
+  `idRfRP` int NOT NULL,
   `idEmployees` int NOT NULL,
   `Rf report Text` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idEmployees`)
+  `rfLog_datetime` varchar(45) DEFAULT NULL,
+  `idPatients` varchar(45) NOT NULL,
+  `patient_name` varchar(45) DEFAULT NULL,
+  `gp_name` varchar(45) DEFAULT NULL,
+  `gp_address` varchar(45) DEFAULT NULL,
+  `gp_mobile_number` varchar(45) DEFAULT NULL,
+  `rf_reason` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idRfRP`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -47,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-20 13:41:49
+-- Dump completed on 2020-04-20 20:51:53

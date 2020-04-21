@@ -6,12 +6,19 @@ String patientAddress;
 String patientInsuranceNo;
 int patientAge;
 String mobileNumber;
+int id;
 /**
  * @return the patientName
  */
 
 public String getPatientName() {
 	return patientName;
+}
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
 }
 public String getPatientInsuranceNo() {
 	return patientInsuranceNo;

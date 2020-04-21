@@ -19,20 +19,20 @@
 -- Table structure for table `patients`
 --
 
-DROP TABLE IF EXISTS `patients`;
+DROP TABLE IF EXISTS `new patients`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `patients` (
+CREATE TABLE `new patients` (
   `idPatients` int NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `address` varchar(45) DEFAULT NULL,
-  `insurance_number` varchar(45) DEFAULT NULL,
-  `age_yrs` int DEFAULT NULL,
-  `mobile_number` varchar(45) DEFAULT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Insurance Number` varchar(45) DEFAULT NULL,
+  `Age(Yrs)` int DEFAULT NULL,
+  `Mobile Number` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPatients`),
   UNIQUE KEY `idPatients_UNIQUE` (`idPatients`),
-  UNIQUE KEY `Insurance Number_UNIQUE` (`insurance_number`),
-  UNIQUE KEY `Mobile Number_UNIQUE` (`mobile_number`)
+  UNIQUE KEY `Insurance Number_UNIQUE` (`Insurance Number`),
+  UNIQUE KEY `Mobile Number_UNIQUE` (`Mobile Number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -40,10 +40,9 @@ CREATE TABLE `patients` (
 -- Dumping data for table `patients`
 --
 
-LOCK TABLES `patients` WRITE;
-/*!40000 ALTER TABLE `patients` DISABLE KEYS */;
-INSERT INTO `patients` VALUES (1,'Thebe Kgostile','15 Victoria Street','80384958373',25,'07369835556 '),(2,'Sage Elsesser','52 PearTree Street','97097898938',23,'08002823782'),(3,'Fatima Mustapha','44 Bevenden Street','23655483528',21,'09001929829'),(4,'Similola Adepoju','13 Earls Court Lane','52673853826',19,'08123928382');
-/*!40000 ALTER TABLE `patients` ENABLE KEYS */;
+LOCK TABLES `new patients` WRITE;
+/*!40000 ALTER TABLE `new patients` DISABLE KEYS */;
+/*!40000 ALTER TABLE `new patients` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-20 20:51:52
+-- Dump completed on 2020-04-20 13:41:49

@@ -37,7 +37,7 @@ CREATE TABLE `general practitioners` (
 
 LOCK TABLES `general practitioners` WRITE;
 /*!40000 ALTER TABLE `general practitioners` DISABLE KEYS */;
-INSERT INTO `general practitioners` VALUES (1003,'Lisa Kudrick','Yes',NULL),(1005,'Diane Nguyen','No','2020-04-16'),(1009,'Chloe Moretz','Yes',NULL),(1011,'Maichael Dumile','No','2020-04-23');
+INSERT INTO `general practitioners` VALUES (1003,'Lisa Kudrick','Yes',NULL),(1005,'Diane Nguyen','No','2020-04-16'),(1009,'Chloe Moretz','Yes',NULL),(1011,'Michael Dumile','No','2020-04-23');
 /*!40000 ALTER TABLE `general practitioners` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
