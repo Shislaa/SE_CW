@@ -25,9 +25,9 @@ DROP TABLE IF EXISTS `rf report`;
 CREATE TABLE `rf report` (
   `idRfRP` int NOT NULL,
   `idEmployees` int NOT NULL,
-  `Rf report Text` varchar(45) DEFAULT NULL,
+  `Rf report Text` varchar(200) DEFAULT NULL,
   `rfLog_datetime` varchar(45) DEFAULT NULL,
-  `idPatients` varchar(45) NOT NULL,
+  `idPatients` int NOT NULL,
   `patient_name` varchar(45) DEFAULT NULL,
   `gp_name` varchar(45) DEFAULT NULL,
   `gp_address` varchar(45) DEFAULT NULL,

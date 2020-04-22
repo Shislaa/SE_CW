@@ -18,16 +18,104 @@ public class DataProcess {
 	static ArrayList<Patient> PatientList = new ArrayList<>();
 	static ArrayList<Appointment> AppointmentList = new ArrayList<>();
 	static ObservableList<Patient> newPatientList = FXCollections.observableArrayList();
-
+	static ObservableList<RefRP> RefRPList = FXCollections.observableArrayList();
+	static ObservableList<Patient_RP> PA_RP_List = FXCollections.observableArrayList();
+	static String loginusername;
+	
 	public DataProcess(){
 		if(EmployeeList.isEmpty())
-		EmployeeData();
+			EmployeeData();
 		if(PatientList.isEmpty())
-		PatientData();
+			PatientData();
 		if(AppointmentList.isEmpty())
-		AppointmentData();
+			AppointmentData();
 		if(newPatientList.isEmpty()) 
-		NewPatientData();
+			NewPatientData();
+		if(RefRPList.isEmpty())
+			RefRPData();
+		if(PA_RP_List.isEmpty())
+			PA_RP_Data();
+	}
+	
+	public void PA_RP_Data() {
+		try {
+			// Get connection
+			Connection mycon = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila","admin","admin");
+			// create a Statement
+			Statement myStat = mycon.createStatement();
+			// Execute query
+			ResultSet myRs = myStat.executeQuery("select * from sakila.report");
+			// print out
+			while(myRs.next()) {
+				int idRP = myRs.getInt("idRP");
+				int GP_ID = myRs.getInt("gp_id");
+				String GP_Name = myRs.getString("gp_name");
+				String PA_Name = myRs.getString("patient_name");
+				String PA_INNO = myRs.getString("patient_insurrance_number");
+				String PA_MoNum = myRs.getString("patient_mobile_number");
+				String PA_Condi = myRs.getString("patient_condition");
+				String extra_sv = myRs.getString("Extra_Service");
+				String Log_Date = myRs.getString("rpLog_datetime");
+				
+				Patient_RP newPA_RP = new Patient_RP();
+				newPA_RP.setIdRP(idRP);
+				newPA_RP.setGP_ID(GP_ID);
+				newPA_RP.setGP_Name(GP_Name);
+				newPA_RP.setPA_Name(PA_Name);
+				newPA_RP.setPA_INNO(PA_INNO);
+				newPA_RP.setPA_MoNum(PA_MoNum);
+				newPA_RP.setPA_Condi(PA_Condi);
+				newPA_RP.setExtra_sv(extra_sv);
+				newPA_RP.setLog_Date(Log_Date);
+				
+				PA_RP_List.add(newPA_RP);
+				
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void RefRPData() {
+		try {
+			// Get connection
+			Connection mycon = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila","admin","admin");
+			// create a Statement
+			Statement myStat = mycon.createStatement();
+			// Execute query
+			ResultSet myRs = myStat.executeQuery("select * from sakila.`rf report`");
+			// print out
+			while(myRs.next()) {
+				int idRP = myRs.getInt("idRfRP");
+				int idEm = myRs.getInt("idEmployees");
+				String RPText = myRs.getString("Rf report Text");
+				String LogDate = myRs.getString("rfLog_datetime");
+				int idPa = myRs.getInt("idPatients");
+				String PaName = myRs.getString("patient_name");
+				String GPName = myRs.getString("gp_name");
+				String GPAdd = myRs.getString("gp_address");
+				String GPMo = myRs.getString("gp_mobile_number");
+				String RPReason = myRs.getString("rf_reason");
+				
+				RefRP newRefRp = new RefRP();
+				newRefRp.setIdRP(idRP);
+				newRefRp.setIdEm(idEm);
+				newRefRp.setRPText(RPText);
+				newRefRp.setLogtime(LogDate);
+				newRefRp.setIdPA(idPa);
+				newRefRp.setPAname(PaName);
+				newRefRp.setGPName(GPName);
+				newRefRp.setGPaddress(GPAdd);
+				newRefRp.setGPMobile(GPMo);
+				newRefRp.setRfRPReason(RPReason);
+				
+				RefRPList.add(newRefRp);
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void EmployeeData() {
@@ -205,7 +293,25 @@ public class DataProcess {
 	
 	
 	
+	
 
+
+	public static ObservableList<Patient_RP> getPA_RP_List() {
+		return PA_RP_List;
+	}
+
+
+	public static String getLoginusername() {
+		return loginusername;
+	}
+
+	public static void setLoginusername(String loginusername) {
+		DataProcess.loginusername = loginusername;
+	}
+
+	public static ObservableList<RefRP> getRefRPList() {
+		return RefRPList;
+	}
 
 
 	public static ObservableList<Patient> getNewPatientList() {

@@ -24,13 +24,14 @@ DROP TABLE IF EXISTS `report`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `report` (
   `idRP` int NOT NULL,
-  `idPatients` int NOT NULL,
-  `reportText` varchar(45) DEFAULT NULL,
+  `gp_id` int NOT NULL,
   `gp_name` varchar(45) DEFAULT NULL,
   `patient_name` varchar(45) DEFAULT NULL,
-  `patient_condition` varchar(45) DEFAULT NULL,
-  `rpLog_datetime` datetime DEFAULT NULL,
-  `transaction_cost` double DEFAULT NULL,
+  `patient_insurrance_number` varchar(45) DEFAULT NULL,
+  `patient_mobile_number` varchar(45) DEFAULT NULL,
+  `patient_condition` varchar(200) DEFAULT NULL,
+  `Extra_Service` varchar(200) DEFAULT NULL,
+  `rpLog_datetime` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idRP`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

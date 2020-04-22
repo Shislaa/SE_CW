@@ -16,9 +16,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import Create_Patient_RP.Create_Patient_RP_Controller;
 import Data.DataProcess;
 import EnrollNewPatient.EnrollPatientController;
 import RegisterAppoitment.MakeAppointmentController;
+import Upload_Ref_RP.UpLoad_Ref_RP_Controller;
+import View_Patient_RP.View_Patient_RP_Controller;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -60,7 +63,6 @@ public class HospMainController {
 	@FXML
 	private Label Statuslbl;
 	@FXML Button EnrolPA;
-	@FXML Button UpdatePaInfo;
 	@FXML Button ViewPaRP;
 	@FXML Button CreatePaRP;
 	@FXML Button CreateRefRp;
@@ -75,6 +77,7 @@ public class HospMainController {
 		String username = Username.getText();
 		String password = Password.getText();
 		if(data.checkLogin(username, password)) {
+			data.setLoginusername(username);
 			((Node)event.getSource()).getScene().getWindow().hide();
 			System.out.println("Login successful");
 			
@@ -121,8 +124,8 @@ public class HospMainController {
         primaryStage.setScene(scene);
         primaryStage.show();
 	}
+	
 	public void APInit() {
-		UpdatePaInfo.setDisable(true);
 		ViewPaRP.setDisable(true);
 		CreatePaRP.setDisable(true);
 		CreateRefRp.setDisable(true);
@@ -131,7 +134,6 @@ public class HospMainController {
 	}
 	public void FCInit() {
 		EnrolPA.setDisable(true);
-		UpdatePaInfo.setDisable(true);
 		ViewPaRP.setDisable(true);
 		CreatePaRP.setDisable(true);
 		CreateRefRp.setDisable(true);
@@ -139,7 +141,6 @@ public class HospMainController {
 	}
 	public void CSInit() {
 		EnrolPA.setDisable(true);
-		UpdatePaInfo.setDisable(true);
 		ViewPaRP.setDisable(true);
 		CreatePaRP.setDisable(true);
 		UpRefRp.setDisable(true);
@@ -147,7 +148,6 @@ public class HospMainController {
 	}
 	public void CSCInit() {
 		EnrolPA.setDisable(true);
-		UpdatePaInfo.setDisable(true);
 		ViewPaRP.setDisable(true);
 		CreatePaRP.setDisable(true);
 		CreateRefRp.setDisable(true);
@@ -158,12 +158,45 @@ public class HospMainController {
 	}
 	public void GPInit() {
 		EnrolPA.setDisable(true);
-		UpdatePaInfo.setDisable(true);
-		CreatePaRP.setDisable(true);
 		CreateRefRp.setDisable(true);
 		UpRefRp.setDisable(true);
 		ManaPay.setDisable(true);
 	}
+	
+	public void ViewPatientRPController(ActionEvent event) throws IOException {
+		Stage primaryStage2 = new Stage();
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("../View_Patient_RP/View_Patient_RP.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		
+		View_Patient_RP_Controller controller = loader.getController();
+		controller.TableInit();
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage2.setScene(scene);
+		primaryStage2.setTitle("HospmanSys");
+		
+		
+		primaryStage2.show();
+	}
+	
+	public void CreatePatientRPController(ActionEvent event) throws IOException {
+		Stage primaryStage2 = new Stage();
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("../Create_Patient_RP/Create_Patient_RP.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		
+		Create_Patient_RP_Controller controller = loader.getController();
+		controller.Appoint_ID_Innit();
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage2.setScene(scene);
+		primaryStage2.setTitle("HospmanSys");
+		
+		
+		primaryStage2.show();
+	}
+	
 	public void RegAppointment(ActionEvent event) throws Exception {
 		
 		((Node)event.getSource()).getScene().getWindow().hide();
@@ -193,6 +226,41 @@ public class HospMainController {
 		primaryStage2.setScene(scene);
 		primaryStage2.setTitle("HospmanSys");
 		
+		
+		primaryStage2.show();
+	}
+	
+	public void CreateRefRepController(ActionEvent event) throws IOException {
+		System.out.println("CreateRefRepController worked");
+		
+		Stage primaryStage2 = new Stage();
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("../CreateRefRP/CreateRef.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage2.setScene(scene);
+		primaryStage2.setTitle("HospmanSys");
+		
+		
+		primaryStage2.show();
+	}
+	
+	public void UploadRefRepController(ActionEvent event) throws IOException {
+		System.out.println("EnrollPatientAction worked");
+		
+		Stage primaryStage2 = new Stage();
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("../Upload_Ref_RP/Upload_Ref_RP.fxml"));
+		Parent root = loader.load();
+		Scene scene = new Scene(root);
+		
+		
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage2.setScene(scene);
+		primaryStage2.setTitle("HospmanSys");
+		UpLoad_Ref_RP_Controller controller = loader.getController();
+		controller.RefTableInit();
 		
 		primaryStage2.show();
 	}
